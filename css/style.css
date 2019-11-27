@@ -47,6 +47,9 @@ p {
     line-height: 26px;
     letter-spacing: 0.2px;
 }
+b{
+    color: rgba(6,6,6,0.5);
+}
 
 strong {
   font-weight: 400;
