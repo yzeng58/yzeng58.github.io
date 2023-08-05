@@ -35,9 +35,11 @@ h3 {
 
 h4 {
   color: #666;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: normal;
   letter-spacing: 2px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 p {
@@ -46,6 +48,8 @@ p {
     font-weight: 300;
     line-height: 26px;
     letter-spacing: 0.2px;
+    padding-bottom: 1px;
+    margin-bottom: 1px;
 }
 b{
     color: rgba(6,6,6,0.5);
@@ -250,29 +254,49 @@ a:hover, a:active, a:focus {
 
 
 /*---------------------------------------
-    Home section              
+    Home Publication section              
 -----------------------------------------*/
 
-#home {
-    background-size: cover;
-    background-position: center center;
-    display: -webkit-box;
-    display: -webkit-flex;
-     display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    -ms-flex-align: center;
-     align-items: center;
-    position: relative;
-    padding-top: 20px;
-    padding-bottom: 40px;
+#home, #publication {
+  background-size: cover;
+  background-position: center center;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  position: relative;
+  padding-top: 5px;       /* Reduced padding */
+  padding-bottom: 5px;    /* Reduced padding */
+  margin-bottom: 5px;     /* Reduced margin */
+  margin-top: 5px;        /* Reduced margin */
 }
 
-#home hr {
-  width: 82px;
-  margin-top: 32px;
+#home hr, #publication hr {
+width: 82px;
+margin-top: 5px;         /* Reduced margin */
+margin-bottom: 5px;      /* Reduced margin */
+padding-top: 5px;        /* Reduced padding */
+padding-bottom: 5px;     /* Reduced padding */
 }
+
+.publication-category li {
+  padding-top: 0px;
+  margin-top: 0px;
+  padding-left: 10px;  /* Reduced the padding to decrease space between bullet and text */
+  margin-bottom: 0px;  /* Adjust this value based on your preferred spacing between papers */
+  list-style-type: disc;  /* This will give a bullet point to each paper */
+}
+
+.publication-category ul {
+  padding-top: 0px;
+  margin-top: 0px;
+  padding-left: 30px; /* Adjust to change the starting position of the bullet points */
+}
+
 
 
 
