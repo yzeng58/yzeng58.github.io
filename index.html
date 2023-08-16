@@ -1,280 +1,132 @@
 
+<!doctype html>
+<html>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <!--     Get up-to-date fontawesome config -->
+    <script src="https://use.fontawesome.com/115eb0f096.js"></script>
+    <script>
+     	function showhide(id) {
+    	var e = document.getElementById(id);
+    	e.style.display = (e.style.display == 'block') ? 'none' : 'block';
+ 		}
+    </script>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Yuchen Zeng's Homepage</title>
 
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge">
-<meta name="description" content="">
-<meta name="keywords" content="">
-<meta name="author" content="">
-<!--meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"-->
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <!--     For academic icon such as google scholar -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico?">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500,600,700" rel="stylesheet">
+    
+    <!--if lt IE 9>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <!endif-->
+   
+    
+  </head>
 
-<title>Yuchen Zeng's Homepage</title>
-     <link rel="shortcut icon" href="head.ico"/>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
+  <body>
+    <div class="wrapper">
+      <header>
 
-<!-- Main css -->
-<link rel="stylesheet" href="css/style.css">
-<link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700" rel="stylesheet">
-     <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<style>
-     a:hover{color:#8c0e08;}
-     .page-header{
-          padding-bottom: 9px;
-          margin: 40px 0 20px;
-          border-bottom: 1px solid #eeeeee;
-          left: 10px;
-     }
-     .picleft{
-          width: 40%;
-          float: left;
-     }
-     .introright{
-          width: 55%;
-          float: right;
-     }
-     .clearf{
-          clear: both;
-     }
-     .div-bottom{
-          margin-top: 45px;
-           }
-     .s4{
-          color: #282a2bd6;
-          font-family:"Microsoft YaHei",sans-serif;
-          font-style: italic;
-          font-weight: normal;
-          text-decoration: none;
-          font-size: 11pt;
-     }
-     .s4:hover{
-          color:#238e70d6;
-     }
-     .s5{
-          font-style: italic;
-          text-decoration: none;
-          font-size: 11pt;
-     }
-     .s5:hover{
-          color:#238e70d6;
-     }
+        <img border=0 Vspace=5 Hspace=0
+        src="images/me.JPG"
+        alt="Zeng"
+        width="221" height="289">
+        <br><br>
 
-</style>
-</head>
-<body>
+        <p>
+          <par><font size=3px>Yuchen Zeng (曾语晨)</font></par><br>
+          Graduate Student<br>
+          University of Wisconsin, Madison<br>
+          <code>yzeng58 @ wisc . edu</code>
+        </p>
 
-<!-- PRE LOADER -->
+<!--         <a href=https://github.com/Leiay/>Github</a> |  -->
+<!--         <a href=https://scholar.google.com/citations?user=ul5MsOIAAAAJ&hl=en>Google Scholar</a> | -->
+<!--         <a href=https://www.linkedin.com/in/liu-y-aa355517a>LinkedIn</a><br> -->
+        <pre><a href="https://github.com/Leiay/" class="fa fa-github fa-2x"></a> <a href="https://scholar.google.com/citations?user=ul5MsOIAAAAJ&hl=en"><i class="ai ai-google-scholar fa-2x"></i></a> <a href="https://www.linkedin.com/in/liu-y-aa355517a" class="fa fa-linkedin fa-2x"></a> <a href="https://twitter.com/Yang_Liuu" class="fa fa-twitter fa-2x"></a></pre>
+      </header>
 
-<div class="preloader">
-     <div class="sk-spinner sk-spinner-wordpress">
-          <span class="sk-inner-circle"></span>
-     </div>
-</div>
+      <section>
+      <h1>About Me</h1>
+        
+      I am a graduate student pursuing a PhD's degree in the Department of Computer Science at the University of Wisconsin-Madison. 
+      I am advised by Prof. <a href="http://kangwooklee.com/index.html">Kangwook Lee</a>. 
+      My current research interests include large language models and machine learning fairness. 
+      I received my Master's degree in Statistics from UW-Madison in 2020, where I was advised by Prof.  <a href="https://pages.stat.wisc.edu/~miaoyan/">Miaoyan Wang</a>. 
+      Prior to UW-Madison, I obtained my Bachelor's degree in Statistics from Nankai University in 2019.  
+      <br><br>
 
-<!-- Navigation section  -->
+      <i>I am looking for internship in summer 2024.</i>
 
-<div class="navbar navbar-default navbar-static-top" role="navigation">
-     <div class="container">
+      <h2 id="Pubs">Publications</h2>    
 
-          <div class="navbar-header">
-               <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-                    <span class="icon icon-bar"></span>
-               </button>
-               <a href="https://www.wisc.edu" class="navbar-brand"><img src="images/wisc.png" height="78px" width="78px"/></a>
-          </div>
-
-  </div>
-</div>
-
-<!-- Home Section -->
-
-<section id="home">
-     <div class="container">
-
-               <div class="page-header">
-                    <h2>Yuchen Zeng</h2>
-                    </td></tr></table>
-                    <p style="margin: 0 0 0 0px;font-size: 16px;">PhD Student</p>
-                    <p>
-                         <a href="http://www.cs.wisc.edu" data-toggle="tooltip" title="Major!"> Department of Computer Science </a><br />
-                         <a href="http://www.wisc.edu" data-toggle="tooltip" title="Major!">University of Wisconsin, Madison </a><br/>
-                         Madison, WI 53706
-                    <p>
-                         Email: <a href="mailto:yzeng58@wisc.edu" data-toggle="tooltip" title="Email me!"> yzeng58@wisc.edu</a> <br/>
-
-                         <br /></p>
-
-               </div>
-               <div class="picleft">
-
-                    <img src="images/me.png" title="Yuchen Zeng" width="390px" height="480px"/>
-
-               </div>
-               <div class="introright">
-
-                    <!--
-                    <b><p style="font-size: 20px;">EDUCATION:</p></b>
-                    <div style="width:100%;height:1px;border-top:solid rgba(6,6,6,0.1) 1px; margin-bottom: 5px;margin-top: 5px;"></div>
-                    -->
-                  <!--  <p style="letter-spacing:0.1px;">VISP+MS 3+1+1 program: 3 undergraduate years +1 undergraduate year +1 graduate year</p>
-                    <p style="letter-spacing:0.1px;">--University of Wisconsin-Madison, USA &nbsp;&nbsp;&nbsp;&nbsp;08/2018 - 05/2020</p> -->
-                    <P style="padding-top: 0pt;padding-left: -5pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4" style="font-size:18px"> Education:</span></P>
-                    <p>I am a graduate student pursuing a PhD's degree in the Department of Computer Science at the University of Wisconsin-Madison. I am advised by Prof. <a href="http://kangwooklee.com/index.html"><font color="Slateblue">Kangwook Lee</font></a>. My research interests are  </span></p>
-                         <li style="padding-top: 0pt;padding-left: 0pt;text-indent: 10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">Large Language Models,</p></li>
-                         <li style="padding-top: 0pt;padding-left: 0pt;text-indent: 10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">Machine Learning Fairness,</p></li>
-                         <p>I received my Master's degree in Statistics from UW-Madison in 2020, where I was advised by Prof.  <a href="https://pages.stat.wisc.edu/~miaoyan/"><font color="Slateblue"></font>Miaoyan Wang</font></a>. Prior to UW-Madison, I obtained my Bachelor's degree in Statistics from Nankai University in 2019.  </span></p> 
-                    <!--
-                    <P style="padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4"> Selected Awards:</span></P>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: -10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;"><a href="https://ifds.info/"><font color="Slateblue">IFDS</font></a> RAship, 2021, 2022</p></li>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: -10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">UW-Madison CS Summer RAship, 2021</p></li>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: -10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">NeurIPS Travel Award, 2019</p></li>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: -10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">Student Scholarship from Nankai University (three times), 2015, 2016, 2017.</p></li>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: -10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">First Prize in Chinese Mathematics Competitions, 2016</p></li>
-                    -->
-                    <P style="padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 20px;"><span class="s4" style="font-size:18px"> Services and leadership:</span></P>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: 10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">Organizer of <a href="https://mlopt.ece.wisc.edu/idea-seminar/"><font color="Slateblue">MLOPT Idea Seminar</font></a></p></li>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: 10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;">Conference reviewer: NeurIPS, ICML, FAccT</p></li>
-                    <P style="padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 20px;"><span class="s4" style="font-size:18px"> Work experience:</span></P>
-                    <li style="padding-top: 0pt;padding-left: 0pt;text-indent: 10pt;text-align: left;line-height: 0px;"><p style="display: inline;padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 15px;"><a href="https://mitibmwatsonailab.mit.edu/"><font color="Slateblue">MIT-IBM Watson AI Lab</font></a>, Summer 2022</p></li>
-                         <p style="text-indent:23pt;text-align: left;font-size: 15px;">Mentored by Dr. <a href="https://moonfolk.github.io/"><font color="Slateblue">Mikhail Yurochkin</font></a> and Prof. <a href="https://people.csail.mit.edu/jsolomon/"><font color="Slateblue">Justin Solomon</font></a></p>
-                    <P style="padding-top: 0pt;padding-left: 0pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4"> I am looking for a 2024 summer internship in a related research field. </span></P>
-               </div>
+      <h3>Large Language Models </h3>
+        LIFT: Language-Interfaced FineTuning for Non-Language Machine Learning Tasks
+        <a href="https://arxiv.org/abs/2206.06565">(paper)</a><a href="https://github.com/UW-Madison-Lee-Lab/LanguageInterfacedFineTuning">(code)</a><br>
+        Tuan Dinh*, <b>Yuchen Zeng*</b>, Ruisu Zhang, Ziqian Lin, Michael Gira, Shashank Rajput, Jy-yong Sohn, Dimitris Papailiopoulos, Kangwook Lee<br>
+        <i>Neural Information Processing Systems 2022</i> (<b>NeurIPS</b>)
+        
 
 
-     </div>
-</section>
+      <h3>Machine Learning Fairness</h3>
+        Federated Learning with Local Fairness Constraints
+        <a href="https://arxiv.org/abs/2110.15545">(paper)</a><a href="https://github.com/yzeng58/Improving-Fairness-via-Federated-Learning">(code)</a><br>
+        <b>Yuchen Zeng</b>, Hongxu Chen, Kangwook Lee<br>
+        <i>2023 IEEE International Symposium on Information Theory</i> (<b>ISIT</b>)
+        <br><br>
+
+        Equal Improvability: A New Fairness Notion Considering the Long-Term Impact
+        <a href="https://arxiv.org/abs/2210.06732">(paper)</a><a href="https://github.com/guldoganozgur/ei_fairness">(code)</a><br>
+        Ozgur Guldogan*, <b>Yuchen Zeng</b>*, Jy-yong Sohn, Ramtin Pedarsani, Kangwook Lee<br>
+        <i>2023 International Conference on Learning Representationy</i> (<b>ICLR</b>)
+        <br><br>
+
+        Outlier-Robust Group Inference via Gradient Space Clustering
+        <a href="https://arxiv.org/abs/2210.06759">(paper)</a><a href="https://github.com/yzeng58/private_demographics">(code)</a><br>
+        <b>Yuchen Zeng</b>, Kristjan Greenewald, Kangwook Lee, Justin Solomon, Mikhail Yurochkin<br>        
+        <br>
+
+        Improving fairness via federated learning
+        <a href="https://arxiv.org/abs/2110.15545">(paper)</a><a href="https://github.com/UW-Madison-Lee-Lab/Improving-Fairness-via-Federated-Learning">(code)</a><br>
+        <b>Yuchen Zeng</b>, Hongxu Chen, Kangwook Lee<br>
+        
+        <h3>Tensor Learning</h3>
+        Multiway clustering via tensor block models
+        <a href="https://arxiv.org/abs/1906.03807">(paper)</a><a href="https://cran.r-project.org/web/packages/tensorsparse/index.html">(code)</a><br>
+        Miaoyan Wang, <b>Yuchen Zeng</b><br>
+        <i>Neural Information Processing Systems 2019</i> (<b>NeurIPS</b>)
+        <br><br>
 
 
-<!-- Home Section -->
-
-<section id="publication">
-     <div class="container">
- 
-         <!-- Publications Header -->
-         <div class="page-header">
-             <p style="font-size: 20px; text-align: center; padding-bottom: 3pt;">PUBLICATIONS</p>
-         </div>
- 
-         <!-- Publications List -->
-         <div>
-
-          <div class="publication-category">
-               <P style="padding-top: 0pt;padding-left: -5pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4" style="font-size:18px"> Large Language Models</span></P>
-          <ul>
-               <li><p style="padding-top: 5px;">Tuan Dinh*, <u>Yuchen Zeng</u>*, Ruisu Zhang, Ziqian Lin, Michael Gira, Shashank Rajput, Jy-yong Sohn, Dimitris Papailiopoulos, Kangwook Lee (2022). <a href="https://arxiv.org/abs/2206.06565" title="Turn to read!">"LIFT: Language-Interfaced FineTuning for Non-Language Machine Learning Tasks". NeurIPS 2022.</a></p></li>
-          </ul>
-          </div>
-
-          <div class="publication-category">
-          <P style="padding-top: 0pt;padding-left: -5pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4" style="font-size:18px"> Machine Learning Fairness</span></P>
-          <ul>
-               <li><p style="padding-top: 5px;"><u>Yuchen Zeng</u>, Hongxu Chen, Kangwook Lee (2023). <a href="https://arxiv.org/abs/2110.15545" title="Turn to read!">"Federated Learning with Local Fairness Constraints". ISIT 2023.</a></p></li>
-
-             <li><p style="padding-top: 5px;"><u>Yuchen Zeng</u>, Kristjan Greenewald, Kangwook Lee, Justin Solomon, Mikhail Yurochkin (2022). <a href="https://arxiv.org/abs/2210.06759" title="Turn to read!">"Outlier-Robust Group Inference via Gradient Space Clustering". arXiv.</a></p></li>
- 
-             <li><p style="padding-top: 5px;">Ozgur Guldogan*, <u>Yuchen Zeng</u>*, Jy-yong Sohn, Ramtin Pedarsani, Kangwook Lee (2022). <a href="https://arxiv.org/abs/2210.06732" title="Turn to read!">"Equal Improvability: A New Fairness Notion Considering the Long-Term Impact". ICLR 2023.</a></p></li>
- 
-             <li><p style="padding-top: 5px;"><u>Yuchen Zeng</u>, Hongxu Chen, Kangwook Lee (2021). <a href="https://arxiv.org/abs/2110.15545" title="Turn to read!">"Improving fairness via federated learning". arXiv.</a></p></li>
-          </ul>
-          </div>
-
-          <div class="publication-category">
-               <P style="padding-top: 0pt;padding-left: -5pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4" style="font-size:18px"> Federated Learning </span></P>
-          <ul>
-               <li><p style="padding-top: 5px;"><u>Yuchen Zeng</u>, Hongxu Chen, Kangwook Lee (2023). <a href="https://arxiv.org/abs/2110.15545" title="Turn to read!">"Federated Learning with Local Fairness Constraints". ISIT 2023.</a></p></li>
-               <li><p style="padding-top: 5px;"><u>Yuchen Zeng</u>, Hongxu Chen, Kangwook Lee (2021). <a href="https://arxiv.org/abs/2110.15545" title="Turn to read!">"Improving fairness via federated learning". arXiv.</a></p></li>
-          </ul>
-          </div>
-
-          <div class="publication-category"></div>
-          <P style="padding-top: 0pt;padding-left: -5pt;text-indent: 0pt;text-align: left;font-size: 16px;"><span class="s4" style="font-size:18px"> Tensor Learning</span></P>
-          <ul>
-             <li><p style="padding-top: 5px;">Miaoyan Wang, <u>Yuchen Zeng</u> (2019). <a href="https://papers.nips.cc/paper/2019/file/9be40cee5b0eee1462c82c6964087ff9-Paper.pdf" title="Turn to read!">"Multiway clustering via tensor block models". NeurIPS 2019.</a></p></li>
- 
-             <li><p style="padding-top: 5px;">Miaoyan Wang, <u>Yuchen Zeng</u> (2019). <a href="https://cran.r-project.org/web/packages/tensorsparse/index.html" title="Turn to read!">R package tensorsparse: Multiway clustering via tensor block models. CRAN.</a></p></li>
-          </ul>
-          </div>
-      </div>
- 
-         <!-- Other Content: As an example, I've added the Awards section which was commented out. -->
-         <!--
-         <div class="col-md-12 col-sm-12">
-             <h2>Selected Awards:</h2>
-             <ul>
-                 <li>NeurIPS Travel Award, 2019</li>
-                 <li>Meritorious Winner in American Mathematical Contest in Modeling, 2018</li>
-                 <li>First Prize in Chinese Mathematics Competitions, 2016</li>
-                 <li>Second Prize in Chinese Mathematical Contest in Modeling (provincial level), 2016</li>
-                 <li>Student Scholarship from Nankai University (three times), 2015, 2016, 2017</li>
-             </ul>
-             <hr>
-         </div>
-         -->
- 
-         <!-- Image and Intro sections - Commented out as no content was provided -->
-         <!--
-         <div class="picleft"></div>
-         <div class="introright"></div>
-         -->
-         <div class="clearf"></div>
-         <div class="div-bottom">
-            
-         </div>
-         <br><br><br><br>
-     </div>
- </section>
- 
+        <h2>Services and leadership:</h2>
+        Organizer of <a href="https://mlopt.ece.wisc.edu/idea-seminar/">MLOPT Idea Seminar</a><br>
+        Conference reviewer: NeurIPS, ICML, FAccT
+        <br><br>
 
 
-<!-- Footer Section -->
+        <h2>Work experience:</h2>
+        <a href="https://mitibmwatsonailab.mit.edu/">MIT-IBM Watson AI Lab</a>, Summer 2022 <br>
+        Mentored by Dr. <a href="https://moonfolk.github.io/">Mikhail Yurochkin</a> and Prof. <a href="https://people.csail.mit.edu/jsolomon/">Justin Solomon</a>
+        <br><br>
 
-<footer>
-     <div class="container">
-          <div class="row">
+      </tbody></table>
 
-               <div class="col-md-3 col-sm-3">
-                    <a href="https://www.wisc.edu" ><img src="images/uw.png" height="60px" width="144px"/></a>
-               </div>
+      </section>
 
-               <div class="col-md-offset-1 col-md-4 col-sm-offset-1 col-sm-3">
-                    <p><a href="mailto:yzeng58@wisc.edu">yzeng58@wisc.edu</a></p>
-                    <p><span class="s5"><span id="busuanzi_container_page_pv">Visits：<span id="busuanzi_value_page_pv"></span>&nbsp;times</span></span></p>
-               </div>
+      <footer>
+          <p><span style="font-size:0.7em">Based on <a href="https://github.com/orderedlist/minimal" style="color:black">minimal</a> by <a href="https://github.com/orderedlist" style="color:black">orderedlist</a>&mdash;<a href="http://creativecommons.org/licenses/by-sa/3.0/" style="color:black">CC BY-SA 3.0</a></span></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+  </body>
 
-               <div class="clearfix col-md-12 col-sm-12">
-                    <hr>
-               </div>
+ </html>
 
-               <div class="col-md-6 col-sm-6">
-                    <div class="footer-copyright">
-                         <p>© 2019 <a href="#">YUCHEN ZENG</a>  | All Rights Reserved.</p>
-                    </div>
-               </div>
-
-               <div class="col-md-6 col-sm-6">
-                    <ul class="social-icon">
-                         <li><a href="https://www.facebook.com/profile.php?id=100015895443537" class="fa fa-facebook"></a></li>
-                         <li><a href="https://twitter.com/yzeng58" class="fa fa-twitter"></a></li>
-                         <li><a href="https://www.instagram.com/yuchen_zeng__/" class="fa fa-instagram" ></a></li>
-                         <li><a href="https://github.com/yzeng58" class="fa fa-github"></a></li>
-                    </ul>
-               </div>
-               
-          </div>
-     </div>
-</footer>
-
-
-<!-- SCRIPTS -->
-
-<script src="js/jquery.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/custom.js"></script>
-
-</body>
-</html>
