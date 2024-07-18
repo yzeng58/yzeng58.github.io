@@ -40,13 +40,13 @@ h1 {
 
 
 a {
-  color: #9f86c0;
+  color: #d28bcc;
   font-weight:400;
   text-decoration:none;
 }
 
 ::selection {
-    background: #e7e6f7; /* WebKit/Blink Browsers */
+    background: #e1c9de; /* WebKit/Blink Browsers */
   }
 
 
