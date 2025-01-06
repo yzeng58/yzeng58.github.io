@@ -174,3 +174,12 @@ footer {
     color:#444;
   }
 }
+
+.badge {
+  background-color: #af5da8; 
+  color: white;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+}
