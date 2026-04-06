@@ -40,13 +40,13 @@ h1 {
 
 
 a {
-  color: #af5da8;
+  color: #4a7c8a;
   font-weight:400;
   text-decoration:none;
 }
 
 ::selection {
-    background: #e1c9de; /* WebKit/Blink Browsers */
+    background: #c9dde3; /* WebKit/Blink Browsers */
   }
 
 
@@ -176,7 +176,7 @@ footer {
 }
 
 .badge {
-  background-color: #af5da8; 
+  background-color: #4a7c8a; 
   color: white;
   padding: 4px 8px;
   border-radius: 4px;
