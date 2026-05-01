@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">Minimal bangs girl icon</title>
+  <desc id="desc">A black circular mark with a minimal straight-bangs silhouette on a transparent outer background.</desc>
+  <defs>
+    <linearGradient id="ring" x1="220" y1="180" x2="820" y2="860" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fafafa"/>
+      <stop offset="0.20" stop-color="#6f7175"/>
+      <stop offset="0.52" stop-color="#9a9ca0"/>
+      <stop offset="0.78" stop-color="#5d5f63"/>
+      <stop offset="1" stop-color="#d7d8da"/>
+    </linearGradient>
+    <linearGradient id="innerRing" x1="300" y1="250" x2="750" y2="790" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.85"/>
+      <stop offset="0.55" stop-color="#ffffff" stop-opacity="0"/>
+      <stop offset="1" stop-color="#000000" stop-opacity="0.10"/>
+    </linearGradient>
+    <filter id="ringShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="16" stdDeviation="16" flood-color="#000000" flood-opacity="0.13"/>
+    </filter>
+  </defs>
+  <circle cx="512" cy="512" r="350" fill="#fff" filter="url(#ringShadow)"/>
+  <circle cx="512" cy="512" r="350" fill="none" stroke="url(#ring)" stroke-width="20"/>
+  <circle cx="512" cy="512" r="333" fill="none" stroke="url(#innerRing)" stroke-width="4"/>
+  <g transform="translate(56.32 56.32) scale(0.89)">
+    <path fill="#050505" d="
+      M512 278
+      C367 278 250 395 250 540
+      C250 589 263 638 288 680
+      C299 699 310 714 326 730
+      C310 671 308 605 323 553
+      L426 553
+      L439 466
+      L452 553
+      L572 553
+      L585 466
+      L598 553
+      L701 553
+      C716 605 714 671 698 730
+      C714 714 725 699 736 680
+      C761 638 774 589 774 540
+      C774 395 657 278 512 278
+      Z"/>
+    <path fill="#fff" d="
+      M323 553
+      H701
+      C714 606 711 675 693 738
+      C648 797 588 826 512 826
+      C436 826 376 797 331 738
+      C313 675 310 606 323 553
+      Z"/>
+  </g>
+</svg>
