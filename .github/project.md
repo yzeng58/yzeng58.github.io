@@ -22,3 +22,5 @@ Yuchen Zeng's personal homepage / academic CV website.
 ## Notes
 - Public repo — no sensitive info
 - Branch: master
+- Visual style target: Apple-like minimalism with subtle hairline dividers, restrained spacing, and no heavy card/button treatment unless explicitly requested.
+- Publication tags should be concise and non-redundant. Use precise labels like `LLM`, `MLLM`, `PEFT`, `ICL`, `Reasoning`, `Theory`, `Transformer`; avoid vague or duplicate tags such as `LM` when `LLM` is intended, or `Multimodal` when `MLLM` already says it.
