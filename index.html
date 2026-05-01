@@ -73,6 +73,7 @@
         <div class="heading-note"><i>(* equal contribution, † equal advising)</i></div>
       </div>
       <div class="publication-intro">For a full list of publications, please see my <a href="https://scholar.google.com/citations?user=vex4iuYAAAAJ&hl=en">Google Scholar</a>.</div>
+      <div class="publication-filter" aria-label="Filter publications by topic"></div>
 
       <div class="pub-tags"><span class="pub-tag">Reasoning</span><span class="pub-tag">LLM</span></div>
       Memento: Teaching LLMs to Manage Their Own Context<br>
@@ -92,7 +93,7 @@
       <a href="https://github.com/txxxxh/Demonstrations-CoT-and-Prompting">[Code]</a>
       <br><br>
 
-        <div class="pub-tags"><span class="pub-tag">LLM</span><span class="pub-tag">Reasoning</span><span class="pub-tag">Representation</span></div>
+        <div class="pub-tags"><span class="pub-tag">LLM</span><span class="pub-tag">Reasoning</span></div>
         ReJump: A Tree-Jump Representation for Analyzing and Improving LLM Reasoning<br>
         <b>Yuchen Zeng*</b>, Shuibai Zhang*, Wonjun Kang*, Shutong Wu, Lynnix Zou, Ying Fan, Heeju Kim, Ziqian Lin, Jungtaek Kim, Hyung Il Koo, Dimitris Papailiopoulos, Kangwook Lee<br>
         <i>International Conference on Machine Learning 2026</i> (<b>ICML</b>)<br>
@@ -119,7 +120,7 @@
         <a href="https://github.com/furiosa-ai/ssm-state-tuning">[Code]</a>
         <br><br>
 
-        <div class="pub-tags"><span class="pub-tag">Tabular Learning</span><span class="pub-tag">Transformer</span></div>
+        <div class="pub-tags"><span class="pub-tag">Tabular Learning</span><span class="pub-tag">Transformer</span><span class="pub-tag">ICL</span></div>
         TabFlex: Scaling Tabular Learning to Millions with Linear Attention <br>
         <b>Yuchen Zeng*</b>, Tuan Dinh*, Wonjun Kang, Andreas Mueller<br>
         <i>International Conference on Machine Learning 2025</i> (<b>ICML</b>) Spotlight (Top 2.6%)<br>
@@ -136,7 +137,7 @@
         <a href="https://x.com/yzeng58/status/1846237275648147771">[Summary]</a> 
         <br><br>
 
-        <div class="pub-tags"><span class="pub-tag">MLLM</span><span class="pub-tag">ICL</span><span class="pub-tag">Text-to-Image</span></div>
+        <div class="pub-tags"><span class="pub-tag">Multimodal</span><span class="pub-tag">ICL</span><span class="pub-tag">Text-to-Image</span><span class="pub-tag">Benchmark</span></div>
         Can MLLMs Perform Text-to-Image In-Context Learning? <br>
         <b>Yuchen Zeng</b>*, Wonjun Kang*, Yicong Chen, Hyung Il Koo, Kangwook Lee<br>
         <i>2024 Conference on Language Modeling</i> (<b>COLM</b>)<br>
@@ -163,7 +164,7 @@
         <a href="https://github.com/UW-Madison-Lee-Lab/Coded_Prompts_for_LLMs">[Code]</a> 
         <br><br> -->
 
-        <div class="pub-tags"><span class="pub-tag">Fairness</span><span class="pub-tag">Federated Learning</span></div>
+        <div class="pub-tags"><span class="pub-tag">Fairness</span><span class="pub-tag">Federated Learning</span><span class="pub-tag">Theory</span></div>
         Federated Learning with Local Fairness Constraints<br>
         <b>Yuchen Zeng</b>, Hongxu Chen, Kangwook Lee<br>
         <i>2023 IEEE International Symposium on Information Theory</i> (<b>ISIT</b>)<br>
@@ -181,7 +182,7 @@
         <a href="https://montrealethics.ai/equal-improvability-a-new-fairness-notion-considering-the-long-term-impact/">[Article]</a>
         <br><br>
 
-        <div class="pub-tags"><span class="pub-tag">LLM</span><span class="pub-tag">PEFT</span><span class="pub-tag">Multimodal</span></div>
+        <div class="pub-tags"><span class="pub-tag">LLM</span><span class="pub-tag">PEFT</span><span class="pub-tag">Multimodal</span><span class="pub-tag">Tabular Learning</span></div>
         LIFT: Language-Interfaced FineTuning for Non-Language Machine Learning Tasks<br>
         Tuan Dinh*, <b>Yuchen Zeng*</b>, Ruisu Zhang, Ziqian Lin, Michael Gira, Shashank Rajput, Jy-yong Sohn, Dimitris Papailiopoulos, Kangwook Lee<br>
         <i>Neural Information Processing Systems 2022</i> (<b>NeurIPS</b>)<br>
@@ -206,7 +207,7 @@
         <a href="https://x.com/Kangwook_Lee/status/1455624858050641926?s=20">[Summary]</a> -->
 
         
-        <div class="pub-tags"><span class="pub-tag">Tensor Learning</span><span class="pub-tag">Clustering</span></div>
+        <div class="pub-tags"><span class="pub-tag">Tensor Learning</span></div>
         Multiway clustering via tensor block models<br>
         Miaoyan Wang, <b>Yuchen Zeng</b><br>
         <i>Neural Information Processing Systems 2019</i> (<b>NeurIPS</b>)<br>
@@ -240,6 +241,110 @@
           <p><span style="font-size:0.7em">Based on <a href="https://github.com/orderedlist/minimal" style="color:black">minimal</a> by <a href="https://github.com/orderedlist" style="color:black">orderedlist</a>&mdash;<a href="http://creativecommons.org/licenses/by-sa/3.0/" style="color:black">CC BY-SA 3.0</a></span></p>
       </footer>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        var filter = document.querySelector('.publication-filter');
+        var tagRows = Array.prototype.slice.call(document.querySelectorAll('.pub-tags'));
+        var publications = [];
+        var orderedTags = [];
+        var seenTags = {};
+
+        tagRows.forEach(function(row) {
+          if (row.closest('.publication-item')) {
+            return;
+          }
+
+          var tags = Array.prototype.map.call(row.querySelectorAll('.pub-tag'), function(tag) {
+            var value = tag.textContent.trim();
+            if (!seenTags[value]) {
+              seenTags[value] = true;
+              orderedTags.push(value);
+            }
+            tag.setAttribute('role', 'button');
+            tag.setAttribute('tabindex', '0');
+            return value;
+          });
+
+          var parent = row.parentNode;
+          var wrapper = document.createElement('div');
+          wrapper.className = 'publication-item';
+          wrapper.setAttribute('data-tags', tags.join('|'));
+          parent.insertBefore(wrapper, row);
+
+          var current = row;
+          while (current) {
+            var next = current.nextSibling;
+            if (current !== row && current.nodeType === 1 && (current.matches('.pub-tags') || current.matches('.section-divider'))) {
+              break;
+            }
+            wrapper.appendChild(current);
+            current = next;
+          }
+
+          publications.push({ element: wrapper, tags: tags });
+        });
+
+        function setActiveTag(activeTag) {
+          publications.forEach(function(publication) {
+            publication.element.hidden = activeTag && publication.tags.indexOf(activeTag) === -1;
+          });
+
+          Array.prototype.forEach.call(document.querySelectorAll('.pub-tag, .filter-tag'), function(tag) {
+            var tagValue = tag.getAttribute('data-tag') || tag.textContent.trim();
+            tag.classList.toggle('is-active', tagValue === activeTag || (!activeTag && tagValue === 'All'));
+          });
+        }
+
+        if (filter) {
+          var allButton = document.createElement('button');
+          allButton.type = 'button';
+          allButton.className = 'filter-tag is-active';
+          allButton.setAttribute('data-tag', 'All');
+          allButton.textContent = 'All';
+          filter.appendChild(allButton);
+
+          orderedTags.forEach(function(tag) {
+            var button = document.createElement('button');
+            button.type = 'button';
+            button.className = 'filter-tag';
+            button.setAttribute('data-tag', tag);
+            button.textContent = tag;
+            filter.appendChild(button);
+          });
+
+          filter.addEventListener('click', function(event) {
+            var button = event.target.closest('.filter-tag');
+            if (!button) {
+              return;
+            }
+            var tag = button.getAttribute('data-tag');
+            setActiveTag(tag === 'All' || button.classList.contains('is-active') ? '' : tag);
+          });
+        }
+
+        document.addEventListener('click', function(event) {
+          var tag = event.target.closest('.pub-tag');
+          if (!tag) {
+            return;
+          }
+          var tagValue = tag.textContent.trim();
+          setActiveTag(tag.classList.contains('is-active') ? '' : tagValue);
+        });
+
+        document.addEventListener('keydown', function(event) {
+          if (event.key !== 'Enter' && event.key !== ' ') {
+            return;
+          }
+          var tag = event.target.closest('.pub-tag');
+          if (!tag) {
+            return;
+          }
+          event.preventDefault();
+          var tagValue = tag.textContent.trim();
+          setActiveTag(tag.classList.contains('is-active') ? '' : tagValue);
+        });
+      });
+    </script>
     <script src="javascripts/scale.fix.js"></script>
   </body>
 
