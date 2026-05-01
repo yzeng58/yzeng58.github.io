@@ -362,9 +362,11 @@ i {
 
   header {
     box-sizing: border-box;
+    display: block;
     margin: 0 auto 46px;
-    margin-left: 0;
-    width: 293px;
+    margin-inline: auto;
+    max-width: calc(100vw - 56px);
+    width: min(293px, 100%);
   }
 
   header img {
@@ -414,6 +416,7 @@ i {
 
   header {
     padding: 22px;
+    max-width: calc(100vw - 44px);
   }
 
   header ul,
@@ -431,6 +434,10 @@ i {
   body {
     padding: 24px 18px;
     font-size: 15px;
+  }
+
+  header {
+    max-width: calc(100vw - 36px);
   }
 
   header ul {

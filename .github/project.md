@@ -24,3 +24,4 @@ Yuchen Zeng's personal homepage / academic CV website.
 - Branch: master
 - Visual style target: Apple-like minimalism with subtle hairline dividers, restrained spacing, and no heavy card/button treatment unless explicitly requested.
 - Publication tags should be concise and non-redundant. Use precise labels like `LLM`, `MLLM`, `PEFT`, `ICL`, `Reasoning`, `Theory`, `Transformer`; avoid vague or duplicate tags such as `LM` when `LLM` is intended, or `Multimodal` when `MLLM` already says it.
+- Favicon should use `favicon.ico` with separate 16/32/64px raster frames for browser tabs. Do not rely on browser-scaled SVG for tiny tab icons; self-check zoomed and actual-size PNG previews before showing the user.
