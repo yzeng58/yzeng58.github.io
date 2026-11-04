@@ -399,6 +399,10 @@ i {
   font-size: 22px;
 }
 
+.social-icon.resume-icon {
+  font-size: 18px;
+}
+
 .social-icon:hover,
 .social-icon:focus {
   opacity: 1;

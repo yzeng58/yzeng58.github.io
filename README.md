@@ -1,1 +1,3 @@
-Welcome to my homepage! 
+Welcome to my homepage!
+
+[Download my CV](CV.pdf).
