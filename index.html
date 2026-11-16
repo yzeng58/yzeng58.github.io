@@ -187,7 +187,7 @@
 
     .news { list-style: none; margin: 0; padding: 0; display: grid; gap: 10px; }
     .news li { display: grid; grid-template-columns: 84px minmax(0, 1fr); column-gap: 16px; font-size: 15px; line-height: 1.6; color: var(--text-2); }
-    .mono, .news time, .cv .when, .venue, .grp-h .gc, .filter .c { font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
+    .mono, .news time, .cv .when, .venue, .grp-h .gc { font-family: "Geist Mono", ui-monospace, "SF Mono", Menlo, monospace; }
     .news time { font-size: 13px; line-height: 1.86; color: var(--text-3); font-variant-numeric: tabular-nums; }
     .news b { font-weight: 600; color: var(--text); white-space: nowrap; }
 
@@ -195,12 +195,7 @@
     .item-d { margin: 5px 0 0; font-size: 14.5px; line-height: 1.6; color: var(--text-2); }
     .item-m { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; margin: 8px 0 0; font-size: 13.5px; line-height: 1.6; color: var(--text-3); }
 
-    /* publications; the topic filter is filled in by the script from each paper's data-tags */
-    .filter { display: flex; flex-wrap: wrap; gap: 4px 2px; margin: 14px 0 0 -10px; }
-    .filter button { display: inline-flex; align-items: center; gap: 6px; height: 28px; padding: 0 10px; border: 0; border-radius: 8px; background: none; color: var(--text-3); font-size: 13px; font-weight: 500; cursor: pointer; transition: background .15s, color .15s; }
-    .filter button:hover { color: var(--text); }
-    .filter button[aria-checked="true"] { background: var(--surface); color: var(--text); }
-    .filter .c { font-size: 11.5px; color: var(--text-3); font-variant-numeric: tabular-nums; }
+    /* publications */
     .intro { margin: 0; font-size: 15px; line-height: 1.65; color: var(--text-2); }
     .legend { margin: 10px 0 0; font-size: 13px; color: var(--text-3); }
     .grp { margin-top: 28px; }
@@ -242,8 +237,6 @@
     .cv .det { grid-column: 1; margin-top: 2px; font-size: 14.5px; line-height: 1.6; color: var(--text-2); }
     .cv .sub { grid-column: 1; margin-top: 3px; font-size: 13.5px; line-height: 1.6; color: var(--text-3); }
     .cv .sub .u { color: var(--text-2); }
-    .svc { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 15px; color: var(--text-2); }
-    .svc b { font-weight: 600; color: var(--text); }
 
     .foot { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 16px; margin-top: 88px; padding-top: 20px; border-top: 1px solid var(--line); font-size: 13px; color: var(--text-3); }
     .foot a { transition: color .15s; }
@@ -262,12 +255,11 @@
     /* touch screens: the small links and buttons get a larger tap area from an invisible layer around them; nothing moves.
        each layer reaches at most halfway to the next link or button, so it never covers a neighbor */
     @media (pointer: coarse) {
-      .plink, .links a, .filter button, #copy-email, .mnav a { position: relative; }
-      .plink::after, .links a::after, .filter button::after, #copy-email::after, #theme::after, .mnav a::after { content: ""; position: absolute; }
+      .plink, .links a, #copy-email, .mnav a { position: relative; }
+      .plink::after, .links a::after, #copy-email::after, #theme::after, .mnav a::after { content: ""; position: absolute; }
       .plink::after { inset: -7px -5px -12px; }
       .links a::after { inset: -4px -3px -4px -8px; }
       #copy-email::after { inset: -3px -8px -6px -3px; }
-      .filter button::after { inset: -2px -1px; }
       .mnav a::after { inset: -4px 0; }
       #theme::after { inset: -5px; }
     }
@@ -277,13 +269,13 @@
     }
 
     /* the fixed column must fit the window: on shorter desktop windows the spacing tightens first, then the portrait shrinks */
-    @media (min-width: 1024px) and (max-height: 980px) {
-      :root { --pad: 56px; --ph: clamp(76px, 100vh - 613px, 264px); }
+    @media (min-width: 1024px) and (max-height: 950px) {
+      :root { --pad: 56px; --ph: clamp(76px, 100vh - 587px, 264px); }
       .panel { padding-bottom: 36px; }
       .nav a { height: 26px; }
       .links { gap: 6px; }
     }
-    @media (min-width: 1024px) and (max-height: 692px) {
+    @media (min-width: 1024px) and (max-height: 666px) {
       .avatar { display: none; }
       h1 { margin-top: 0; }
     }
@@ -348,8 +340,6 @@
       *, *::before, *::after { animation: none !important; transition: none !important; }
     }
   </style>
-  <!-- without scripts the paper list still shows in full; the filter cannot work then, so it is left out -->
-  <noscript><style>.filter { display: none; }</style></noscript>
 </head>
 <body>
   <svg width="0" height="0" style="position: absolute" aria-hidden="true">
@@ -379,7 +369,6 @@
       <a href="#project" data-sec="project">Independent Project</a>
       <a href="#experience" data-sec="experience">Work Experience</a>
       <a href="#education" data-sec="education">Education</a>
-      <a href="#service" data-sec="service">Services and Leadership</a>
     </div>
   </nav>
 
@@ -406,7 +395,6 @@
           <a href="#project" data-sec="project">Independent Project</a>
           <a href="#experience" data-sec="experience">Work Experience</a>
           <a href="#education" data-sec="education">Education</a>
-          <a href="#service" data-sec="service">Services and Leadership</a>
         </nav>
         <button class="ghost" id="theme" type="button"><svg class="icon moon"><use href="#i-moon"/></svg><svg class="icon sun"><use href="#i-sun"/></svg></button>
       </div>
@@ -440,18 +428,17 @@
         <div class="sec-h"><h2>Selected Publications</h2></div>
         <p class="intro">For a full list of publications, please see my <a class="u" href="https://scholar.google.com/citations?user=vex4iuYAAAAJ&amp;hl=en">Google Scholar</a>.</p>
         <p class="legend">* equal contribution, &dagger; equal advising</p>
-        <div class="filter" role="radiogroup" aria-label="Filter publications by topic"></div>
-        <!-- one <li class="pub"> per paper: title links to the paper, data-tags holds its topics (separated by |) for the filter -->
+        <!-- one <li class="pub"> per paper, in its year group; the title links to the paper -->
         <div id="list">
           <section class="grp" aria-label="Preprints">
             <h3 class="grp-h">Preprints<span class="gc">2</span></h3>
             <ul class="pubs">
-              <li class="pub" data-tags="LLM|Agent|AI Security">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2611.15118">Lazare, veni foras: Reprogramming Dormant Neurons to Backdoor AI Agents</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, Giorgio Severi, Blake Bullwinkel, <a href="https://erichorvitz.com/">Eric Horvitz</a>, <a href="https://papail.io/">Dimitris Papailiopoulos</a></p>
                 <p class="item-m"><span class="venue">arXiv</span><a class="plink" href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/"><svg class="icon"><use href="#i-news"/></svg>Blog</a><a class="plink" href="https://www.microsoft.com/en-us/security/blog/2026/11/10/detecting-sleeper-agents-hiding-in-ai-model-neurons/"><svg class="icon"><use href="#i-news"/></svg>Security Blog</a></p>
               </li>
-              <li class="pub" data-tags="LLM">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/pdf/2606.24020">You Don't Need to Run Every Eval</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, <a href="https://papail.io/">Dimitris Papailiopoulos</a></p>
                 <p class="item-m"><span class="venue">Under Review</span><a class="plink" href="https://github.com/microsoft/benchpress"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://huggingface.co/datasets/microsoft/benchpress-score-matrix"><svg class="icon"><use href="#i-db"/></svg>Dataset</a><a class="plink" href="https://microsoft.github.io/benchpress/"><svg class="icon"><use href="#i-globe"/></svg>Website</a></p>
@@ -461,22 +448,22 @@
           <section class="grp" aria-label="2026">
             <h3 class="grp-h">2026<span class="gc">4</span></h3>
             <ul class="pubs">
-              <li class="pub" data-tags="LLM|Post-Training">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2606.24143">AsyncOPD: How Stale Can On-Policy Distillation Be?</a>
                 <p class="p-authors"><a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <a href="https://kevingalim.com/">Kevin Galim</a>*, <a href="https://seunghyukoh.com/">Seunghyuk Oh</a>, Minjun Kang, Sanghyun Park, <a href="https://scholar.google.com/citations?hl=en&amp;user=FKPOG1EAAAAJ">Donghoon Kim</a>, <a href="https://mjbooo.github.io/">Minjae Lee</a>, <a href="https://minseokim.org/">Minseo Kim</a>, <a href="https://rishabhtiwari.org/">Rishabh Tiwari</a>, <b>Yuchen Zeng</b>, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">NeurIPS 2026</span><a class="plink" href="https://github.com/furiosa-ai/async-opd"><svg class="icon"><use href="#i-code"/></svg>Code</a></p>
               </li>
-              <li class="pub" data-tags="Reasoning|LLM">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/pdf/2604.09852">Memento: Teaching LLMs to Manage Their Own Context</a>
                 <p class="p-authors"><a href="https://vkonton.github.io/">Vasilis Kontonis</a>, <b>Yuchen Zeng</b>, <a href="https://cs.stanford.edu/~shivamg/">Shivam Garg</a>, <a href="https://lchen001.github.io/">Lingjiao Chen</a>, Hao Tang, Ziyan Wang, Ahmed Awadallah, <a href="https://erichorvitz.com/">Eric Horvitz</a>, <a href="https://hunch.net/~jl/">John Langford</a>, <a href="https://papail.io/">Dimitris Papailiopoulos</a></p>
                 <p class="item-m"><span class="venue">COLM 2026 Oral</span><span class="p-note">Top 0.8%</span><a class="plink" href="https://github.com/microsoft/memento"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://huggingface.co/datasets/microsoft/OpenMementos"><svg class="icon"><use href="#i-db"/></svg>Dataset</a><a class="plink" href="https://x.com/DimitrisPapail/article/2041974013950373901"><svg class="icon"><use href="#i-news"/></svg>Blog</a></p>
               </li>
-              <li class="pub" data-tags="LLM|Reasoning">
+              <li class="pub">
                 <a class="p-title" href="https://www.arxiv.org/abs/2512.00831">ReJump: A Tree-Jump Representation for Analyzing and Improving LLM Reasoning</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>*, <a href="https://zhangshuibai.github.io/">Shuibai Zhang</a>*, <a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <a href="https://cychomatica.github.io/">Shutong Wu</a>, Lynnix Zou, <a href="https://yingfan-bot.github.io/">Ying Fan</a>, Heeju Kim, <a href="https://myhakureimu.github.io/">Ziqian Lin</a>, <a href="https://jungtaekkim.github.io/">Jungtaek Kim</a>, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="https://papail.io/">Dimitris Papailiopoulos</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ICML 2026</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/ReJump"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/DimitrisPapail/status/1998415684980584520"><svg class="icon"><use href="#i-chat"/></svg>Summary</a></p>
               </li>
-              <li class="pub" data-tags="LLM|Diffusion LLM|Benchmark">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2510.04767">ParallelBench: Understanding the Trade-offs of Parallel Decoding in Diffusion LLMs</a>
                 <p class="p-authors"><a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <a href="https://kevingalim.com/">Kevin Galim</a>*, <a href="https://seunghyukoh.com/">Seunghyuk Oh</a>*, <a href="https://mjbooo.github.io/">Minjae Lee</a>, <b>Yuchen Zeng</b>, <a href="https://zhangshuibai.github.io/">Shuibai Zhang</a>, <a href="https://colemanhooper.org/">Coleman Hooper</a>, <a href="https://yuezhouhu.github.io/">Yuezhou Hu</a>, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="http://ispl.snu.ac.kr/">Nam Ik Cho</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ICLR 2026</span><a class="plink" href="https://github.com/furiosa-ai/ParallelBench"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/Kangwook_Lee/status/1978883789523947676"><svg class="icon"><use href="#i-chat"/></svg>Summary</a><a class="plink" href="https://parallelbench.github.io/"><svg class="icon"><use href="#i-globe"/></svg>Website</a></p>
@@ -486,17 +473,17 @@
           <section class="grp" aria-label="2025">
             <h3 class="grp-h">2025<span class="gc">3</span></h3>
             <ul class="pubs">
-              <li class="pub" data-tags="PEFT|Post-Training|State Space Model|LLM">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2503.03499">State-offset Tuning: State-based Parameter-Efficient Fine-Tuning for State Space Models</a>
                 <p class="p-authors"><a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <a href="https://kevingalim.com/">Kevin Galim</a>*, <b>Yuchen Zeng</b>*, <a href="https://mjbooo.github.io/">Minjae Lee</a>, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="http://ispl.snu.ac.kr/">Nam Ik Cho</a></p>
                 <p class="item-m"><span class="venue">ACL 2025</span><a class="plink" href="https://github.com/furiosa-ai/ssm-state-tuning"><svg class="icon"><use href="#i-code"/></svg>Code</a></p>
               </li>
-              <li class="pub" data-tags="LLM|Tabular Learning|Transformer|ICL|Pretraining">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2506.05584">TabFlex: Scaling Tabular Learning to Millions with Linear Attention</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>*, <a href="https://tuanqdinh.com/">Tuan Dinh</a>*, <a href="https://wonjunn.github.io/">Wonjun Kang</a>, <a href="https://amueller.github.io/">Andreas Mueller</a></p>
                 <p class="item-m"><span class="venue">ICML 2025 Spotlight</span><span class="p-note">Top 2.6%</span><a class="plink" href="https://github.com/microsoft/ticl/tree/develop"><svg class="icon"><use href="#i-code"/></svg>Code</a></p>
               </li>
-              <li class="pub" data-tags="PEFT|Post-Training|State Space Model|LLM">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2410.09016">Parameter-Efficient Fine-Tuning of State Space Models</a>
                 <p class="p-authors"><a href="https://kevingalim.com/">Kevin Galim</a>*, <a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <b>Yuchen Zeng</b>*, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ICML 2025</span><a class="plink" href="https://github.com/furiosa-ai/ssm-peft"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/yzeng58/status/1846237275648147771"><svg class="icon"><use href="#i-chat"/></svg>Summary</a></p>
@@ -506,48 +493,48 @@
           <section class="grp" aria-label="2024 and Earlier">
             <h3 class="grp-h">2024 and Earlier<span class="gc">6</span></h3>
             <ul class="pubs">
-              <li class="pub" data-tags="LLM|Multimodal|ICL|Benchmark">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2402.01293">Can MLLMs Perform Text-to-Image In-Context Learning?</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>*, <a href="https://wonjunn.github.io/">Wonjun Kang</a>*, <a href="https://bryce-chen.github.io/">Yicong Chen</a>, <a href="https://sites.google.com/view/ajoucvml/professor">Hyung Il Koo</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">COLM 2024</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/CoBSAT"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://twitter.com/yzeng58/status/1758679354408829250"><svg class="icon"><use href="#i-chat"/></svg>Summary</a><a class="plink" href="https://www.youtube.com/watch?v=GNLkneJWnEE"><svg class="icon"><use href="#i-play"/></svg>45-Minute Talk</a></p>
               </li>
-              <li class="pub" data-tags="PEFT|Post-Training|LLM|Theory">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2310.17513">The Expressive Power of Low-Rank Adaptation</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ICLR 2024</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/Expressive_Power_of_LoRA"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://twitter.com/yzeng58/status/1717982497592516727"><svg class="icon"><use href="#i-chat"/></svg>Summary</a><a class="plink" href="https://www.bilibili.com/video/BV14G411y7yh/?spm_id_from=333.337.search-card.all.click&amp;vd_source=84cfc6ef888583c3507782aa1d2158d9"><svg class="icon"><use href="#i-play"/></svg>45-Minute Talk in Chinese</a></p>
               </li>
-              <li class="pub" data-tags="Fairness|Federated Learning|Theory">
+              <li class="pub">
                 <a class="p-title" href="https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&amp;arnumber=10206590">Federated Learning with Local Fairness Constraints</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, Hongxu Chen, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ISIT 2023</span></p>
               </li>
-              <li class="pub" data-tags="Fairness">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2210.06732">Equal Improvability: A New Fairness Notion Considering the Long-Term Impact</a>
                 <p class="p-authors"><a href="https://guldoganozgur.github.io/">Ozgur Guldogan</a>*, <b>Yuchen Zeng</b>*, <a href="https://sites.google.com/view/jsohn">Jy-yong Sohn</a>, <a href="https://web.ece.ucsb.edu/~ramtin/">Ramtin Pedarsani</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">ICLR 2023</span><a class="plink" href="https://github.com/guldoganozgur/ei_fairness"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/Kangwook_Lee/status/1652907520518934528?s=20"><svg class="icon"><use href="#i-chat"/></svg>Summary</a><a class="plink" href="https://iclr.cc/virtual/2023/poster/10869"><svg class="icon"><use href="#i-play"/></svg>5-Minute Video</a><a class="plink" href="https://montrealethics.ai/equal-improvability-a-new-fairness-notion-considering-the-long-term-impact/"><svg class="icon"><use href="#i-news"/></svg>Article</a></p>
               </li>
-              <li class="pub" data-tags="LLM|PEFT|Post-Training|Multimodal|Tabular Learning">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2206.06565">LIFT: Language-Interfaced FineTuning for Non-Language Machine Learning Tasks</a>
                 <p class="p-authors"><a href="https://tuanqdinh.com/">Tuan Dinh</a>*, <b>Yuchen Zeng</b>*, Ruisu Zhang, <a href="https://myhakureimu.github.io/">Ziqian Lin</a>, Michael Gira, <a href="https://shashankrajput.github.io/">Shashank Rajput</a>, <a href="https://sites.google.com/view/jsohn">Jy-yong Sohn</a>, <a href="https://papail.io/">Dimitris Papailiopoulos</a>, <a href="https://kangwooklee.com/">Kangwook Lee</a></p>
                 <p class="item-m"><span class="venue">NeurIPS 2022</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/LanguageInterfacedFineTuning"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/Kangwook_Lee/status/1536789544820957184?s=20"><svg class="icon"><use href="#i-chat"/></svg>Summary</a><a class="plink" href="https://nips.cc/virtual/2022/poster/54500"><svg class="icon"><use href="#i-play"/></svg>5-Minute Video</a><a class="plink" href="https://uw-madison-lee-lab.github.io/LanguageInterfacedFineTuning/"><svg class="icon"><use href="#i-globe"/></svg>Website</a><a class="plink" href="https://www.bilibili.com/video/BV1zV4y187za/?spm_id_from=333.788.recommend_more_video.0&amp;vd_source=84cfc6ef888583c3507782aa1d2158d9"><svg class="icon"><use href="#i-play"/></svg>45-Minute Talk in Chinese</a></p>
               </li>
-              <li class="pub" data-tags="Tensor Learning|Theory">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/1906.03807">Multiway clustering via tensor block models</a>
                 <p class="p-authors"><a href="https://pages.stat.wisc.edu/~miaoyan/">Miaoyan Wang</a>, <b>Yuchen Zeng</b></p>
                 <p class="item-m"><span class="venue">NeurIPS 2019</span><a class="plink" href="https://cran.r-project.org/web/packages/tensorsparse/index.html"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://www.youtube.com/watch?v=b3sOTLwxHMY"><svg class="icon"><use href="#i-play"/></svg>3-Minute Video</a></p>
               </li>
               <!-- hidden from the selected list; move an item above this comment to show it
-              <li class="pub" data-tags="LLM">
+              <li class="pub">
                 <a class="p-title" href="https://openreview.net/pdf?id=EztQmfnMLg">Coded Prompts for Large Language Models</a>
                 <p class="p-authors">Ziqian Lin, Yicong Chen, <b>Yuchen Zeng</b>, Kangwook Lee</p>
                 <p class="item-m"><span class="venue">NeurIPS 2023 Workshop</span><span class="p-note">R0-FoMo</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/Coded_Prompts_for_LLMs"><svg class="icon"><use href="#i-code"/></svg>Code</a></p>
               </li>
-              <li class="pub" data-tags="Fairness">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2210.06759">Outlier-Robust Group Inference via Gradient Space Clustering</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, Kristjan Greenewald, Kangwook Lee, Justin Solomon, Mikhail Yurochkin</p>
                 <p class="item-m"><span class="venue">Preprint</span><a class="plink" href="https://github.com/yzeng58/private_demographics"><svg class="icon"><use href="#i-code"/></svg>Code</a></p>
               </li>
-              <li class="pub" data-tags="Fairness|Federated Learning">
+              <li class="pub">
                 <a class="p-title" href="https://arxiv.org/abs/2110.15545">Improving Fairness via Federated Learning</a>
                 <p class="p-authors"><b>Yuchen Zeng</b>, Hongxu Chen, Kangwook Lee</p>
                 <p class="item-m"><span class="venue">Preprint</span><a class="plink" href="https://github.com/UW-Madison-Lee-Lab/Improving-Fairness-via-Federated-Learning"><svg class="icon"><use href="#i-code"/></svg>Code</a><a class="plink" href="https://x.com/Kangwook_Lee/status/1455624858050641926?s=20"><svg class="icon"><use href="#i-chat"/></svg>Summary</a></p>
@@ -582,16 +569,6 @@
           <li><span class="org"><a class="u" href="https://www.wisc.edu/">University of Wisconsin-Madison</a></span><span class="when">Sep 2020 – Jun 2025</span><span class="det">Ph.D. in Computer Science</span><span class="sub">Advisor: Prof. <a class="u" href="http://kangwooklee.com/index.html">Kangwook Lee</a></span></li>
           <li><span class="org"><a class="u" href="https://www.wisc.edu/">University of Wisconsin-Madison</a></span><span class="when">Aug 2018 – May 2020</span><span class="det">M.S. in Statistics</span><span class="sub">Advisor: Prof. <a class="u" href="https://pages.stat.wisc.edu/~miaoyan/">Miaoyan Wang</a></span></li>
           <li><span class="org"><a class="u" href="http://en.math.nankai.edu.cn/">Nankai University</a></span><span class="when">Sep 2015 – Jun 2019</span><span class="det">B.S. in Statistics, School of Mathematical Sciences</span></li>
-        </ul>
-      </section>
-
-      <section class="sec" id="service">
-        <div class="sec-h"><h2>Services and Leadership</h2></div>
-        <ul class="svc">
-          <li><b>Conference reviewer:</b> NeurIPS, ICML, ICLR, TMLR, AISTATS</li>
-          <li>Organizer of <a class="u" href="https://mlopt.ece.wisc.edu/idea-seminar/">MLOPT Idea Seminar</a></li>
-          <li>Selected to participate in <a class="u" href="https://midas.umich.edu/future-leaders-summit-2024/">Future Leaders Summit</a></li>
-          <li>Recipient of 2024 COLM DEI Travel Scholarship</li>
         </ul>
       </section>
 
@@ -654,59 +631,6 @@
         }
         toast("Email copied");
       });
-
-      // publications: the list itself is in the page, so it shows without scripts.
-      // this part builds the topic filter from each paper's data-tags (in order of first use), counts, and filters
-      const groups = $$("#list .grp").map(el => ({ el, countEl: $(".gc", el), items: $$(".pub", el) }));
-      const pubs = groups.flatMap(g => g.items);
-      const tagsOf = li => (li.dataset.tags || "").split("|").filter(Boolean);
-      const topics = [...new Set(pubs.flatMap(tagsOf))];
-      const filter = $(".filter");
-      ["all", ...topics].forEach(t => {
-        const b = document.createElement("button");
-        b.type = "button";
-        b.setAttribute("role", "radio");
-        b.dataset.f = t;
-        b.append(t === "all" ? "All" : t);
-        const c = document.createElement("span");
-        c.className = "c";
-        c.textContent = t === "all" ? pubs.length : pubs.filter(li => tagsOf(li).includes(t)).length;
-        b.append(c);
-        filter.append(b);
-      });
-
-      function apply(topic) {
-        groups.forEach(g => {
-          let n = 0;
-          g.items.forEach(li => {
-            const ok = topic === "all" || tagsOf(li).includes(topic);
-            li.hidden = !ok;
-            if (ok) n++;
-          });
-          g.el.hidden = !n;
-          g.countEl.textContent = n;
-        });
-      }
-      const tabs = $$(".filter button");
-      function setTopic(t, focus) {
-        tabs.forEach(b => {
-          const on = b.dataset.f === t;
-          b.setAttribute("aria-checked", on);
-          b.tabIndex = on ? 0 : -1;
-          if (on && focus) b.focus();
-        });
-        apply(t);
-      }
-      tabs.forEach((b, i) => {
-        b.addEventListener("click", () => setTopic(b.dataset.f));
-        b.addEventListener("keydown", e => {
-          const d = e.key === "ArrowRight" || e.key === "ArrowDown" ? 1 : e.key === "ArrowLeft" || e.key === "ArrowUp" ? -1 : 0;
-          if (!d) return;
-          e.preventDefault();
-          setTopic(tabs[(i + d + tabs.length) % tabs.length].dataset.f, true);
-        });
-      });
-      setTopic("all");
 
       // current section, shown in the side menu (two columns) and in the top bar (one column)
       const links = $$(".nav a");
